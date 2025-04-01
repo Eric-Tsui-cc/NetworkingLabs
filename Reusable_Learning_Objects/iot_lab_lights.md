@@ -142,4 +142,30 @@ You can change/test the temperature of the sensor by holding the sensor or leavi
 * Can you modify the code to change to a different colour based on the temperature, you can also play with the fade?
 * Can you then loop over this code block for 10 minutes or 600 seconds, it may be helpful to use the sleep command again and retest the temperature every second?
 * Can you change more than just your own light?
+#### Command could be crazy for lights(change the light number if you want) by Eric ####
+```
+#!/bin/bash
 
+for i in {1..10}
+do
+  curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''424''',"intensity": '''0''',"red": '''0''',"green": '''0''',"blue": '''255''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+  curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''425''',"intensity": '''0''',"red": '''0''',"green": '''0''',"blue": '''255''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+  sleep 0.1s
+  curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''424''',"intensity": '''255''',"red": '''0''',"green": '''255''',"blue": '''0''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+  curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''425''',"intensity": '''255''',"red": '''0''',"green": '''255''',"blue": '''0''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+  sleep 0.1s
+  curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''424''',"intensity": '''0''',"red": '''0''',"green": '''0''',"blue": '''255''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+  curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''425''',"intensity": '''0''',"red": '''0''',"green": '''0''',"blue": '''255''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+  sleep 0.2s
+    curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''424''',"intensity": '''255''',"red": '''255''',"green": '''0''',"blue": '''0''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+    curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''425''',"intensity": '''255''',"red": '''255''',"green": '''0''',"blue": '''0''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+  sleep 0.1s
+      curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''424''',"intensity": '''255''',"red": '''0''',"green": '''0''',"blue": '''255''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+      curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''425''',"intensity": '''255''',"red": '''0''',"green": '''0''',"blue": '''255''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+  sleep 0.1s
+  curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''424''',"intensity": '''0''',"red": '''0''',"green": '''0''',"blue": '''255''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+  curl -i -X PUT -H 'Content-Type: application/json' -d '{"target": "fixture","num": '''425''',"intensity": '''0''',"red": '''0''',"green": '''0''',"blue": '''255''',"temperature": '''255''',"fade": '''0.1''',"path": "Default"}' http://10.50.41.230/api/override
+ 
+done
+
+```
